@@ -2,7 +2,7 @@
 
 var iaas = () => {
     
-    var node_ssh = require('node-ssh');
+    var node_ssh = require("node-ssh");
     var ssh = new node_ssh();
     var pck = require("./package.json");
     
@@ -16,5 +16,6 @@ var iaas = () => {
       });
     });
 };
-module.exports.iaas = iaas();
+
+module.exports.iaas = iaas;
 
