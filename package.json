@@ -9,6 +9,11 @@
   "author": {
     "name": "Eric Ramos Suárez Lucas Ruiz González Tania González Rodriguez"
   },
+  "iaas":{
+    "user": "usuario",
+    "ip": "10.6.128.159",
+    "command": "cd /home/usuario/Sytw/Styw3;git pull origin master"
+  },
   "license": "ISC",
   "_id": "gitbook-start-plugin-iaas-ull-es-ericlucastania@1.0.0",
   "_shasum": "04c6dc46186f8ae84c46a59132ae37944ab13bc4",
