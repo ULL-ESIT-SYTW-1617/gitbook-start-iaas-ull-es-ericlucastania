@@ -1,6 +1,8 @@
-function iaas(){
+"use strict";
+
+var iaas = () => {
     
-    var node_ssh = require("node-ssh");
+    var node_ssh = require('node-ssh');
     var ssh = new node_ssh();
     var pck = require("./package.json");
     
