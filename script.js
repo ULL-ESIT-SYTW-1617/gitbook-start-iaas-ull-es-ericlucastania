@@ -1,5 +1,3 @@
-"use strict";
-
 var iaas = function(){
     
     var node_ssh = require('node-ssh');
