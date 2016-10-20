@@ -9,7 +9,7 @@
   "author": {
     "name": "Eric Ramos Suárez Lucas Ruiz González Tania González Rodriguez"
   },
-  "iaas":{
+  "iaas": {
     "user": "usuario",
     "ip": "10.6.128.159",
     "command": "cd /home/usuario/Sytw/Styw3;git pull origin master",
@@ -42,6 +42,7 @@
   "directories": {},
   "_resolved": "https://registry.npmjs.org/gitbook-start-plugin-iaas-ull-es-ericlucastania/-/gitbook-start-plugin-iaas-ull-es-ericlucastania-1.0.0.tgz",
   "dependencies": {
-    "node-ssh": "^3.0.1"
+    "node-ssh": "^3.0.1",
+    "simple-ssh": "^0.9.0"
   }
 }
