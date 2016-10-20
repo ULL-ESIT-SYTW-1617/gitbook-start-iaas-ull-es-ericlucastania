@@ -1,3 +1,3 @@
-var iaas= require("gitbook-start-plugin-iaas-ull-es-ericlucastania");
+var iaas= require("./script.js");
 
-iaas.initialize;
+iaas.initialize();
