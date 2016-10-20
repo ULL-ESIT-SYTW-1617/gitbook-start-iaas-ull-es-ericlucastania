@@ -1,5 +1,5 @@
 "use strict";
-
+/*
 var iaas = () => {
   var pck = require("./package.json");  
   var SSH = require('simple-ssh');
@@ -15,8 +15,8 @@ var iaas = () => {
       }
   }).start();
 };
+*/
 
-/*
 var iaas = () => {
     
     var node_ssh = require("node-ssh");
@@ -25,7 +25,8 @@ var iaas = () => {
     
     ssh.connect({
       host: pck.iaas.ip,
-      username: pck.iaas.user
+      username: pck.iaas.user,
+      privateKey: '/home/jose/.ssh/iaas'
     }).then(function() {
       ssh.execCommand(pck.iaas.command).then(function(result) {
         console.log('STDOUT: ' + result.stdout);
@@ -33,6 +34,6 @@ var iaas = () => {
       });
     });
 };
-*/
+
 module.exports.iaas = iaas;
 
