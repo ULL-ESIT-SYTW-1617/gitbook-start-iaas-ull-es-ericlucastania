@@ -31,8 +31,10 @@ var iaas = () => {
       ssh.execCommand(pck.iaas.command).then(function(result) {
         console.log('STDOUT: ' + result.stdout);
         console.log('STDERR: ' + result.stderr);
+        return;
       });
     });
+    
 };
 
 module.exports.iaas = iaas;
