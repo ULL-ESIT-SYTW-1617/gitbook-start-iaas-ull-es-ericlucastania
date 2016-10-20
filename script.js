@@ -17,10 +17,11 @@ module.exports = {
     });*/
     var clave = fs.readFileSync('iaas.pub');
 
-    exec("ssh usuario@10.6.128.121 -T && echo $clave >> ~/.ssh/authorized_keys && exit");
+    exec("ssh-copy-id -i iaas usuario@10.6.128.121");
     console.log("despues del ssh");
-    
+
     exec("scp iaas.pub usuario@10.6.128.121:~/.ssh");
+    exec("mv iaas ~/.ssh; mv iaas.pub ~/.ssh");
     console.log("todo perfe");
 
   },
