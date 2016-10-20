@@ -6,8 +6,7 @@ var iaas = () => {
    
   var ssh = new SSH({
       host: pck.iaas.ip,
-      user: pck.iaas.user,
-      pass: pck.iaas.passwd
+      user: pck.iaas.user
   });
    
   ssh.exec(pck.iaas.command, {
