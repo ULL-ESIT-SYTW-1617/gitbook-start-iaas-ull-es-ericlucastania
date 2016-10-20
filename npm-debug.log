@@ -1,0 +1,117 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/ubuntu/.nvm/versions/node/v4.5.0/bin/node',
+1 verbose cli   '/home/ubuntu/.nvm/versions/node/v4.5.0/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@2.15.9
+3 info using node@v4.5.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/home/ubuntu/workspace/Plugins/gitbook-start-plugin-iaas-ull-es-ericlucastania',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /home/ubuntu/.npm/gitbook-start-plugin-iaas-ull-es-ericlucastania/1.0.15/package.tgz not in flight; packing
+9 verbose correctMkdir /home/ubuntu/.npm correctMkdir not in flight; initializing
+10 verbose tar pack [ '/home/ubuntu/.npm/gitbook-start-plugin-iaas-ull-es-ericlucastania/1.0.15/package.tgz',
+10 verbose tar pack   '/home/ubuntu/workspace/Plugins/gitbook-start-plugin-iaas-ull-es-ericlucastania' ]
+11 verbose tarball /home/ubuntu/.npm/gitbook-start-plugin-iaas-ull-es-ericlucastania/1.0.15/package.tgz
+12 verbose folder /home/ubuntu/workspace/Plugins/gitbook-start-plugin-iaas-ull-es-ericlucastania
+13 info prepublish gitbook-start-plugin-iaas-ull-es-ericlucastania@1.0.15
+14 verbose addLocalTarball adding from inside cache /home/ubuntu/.npm/gitbook-start-plugin-iaas-ull-es-ericlucastania/1.0.15/package.tgz
+15 verbose correctMkdir /home/ubuntu/.npm correctMkdir not in flight; initializing
+16 silly cache afterAdd gitbook-start-plugin-iaas-ull-es-ericlucastania@1.0.15
+17 verbose afterAdd /home/ubuntu/.npm/gitbook-start-plugin-iaas-ull-es-ericlucastania/1.0.15/package/package.json not in flight; writing
+18 verbose correctMkdir /home/ubuntu/.npm correctMkdir not in flight; initializing
+19 verbose afterAdd /home/ubuntu/.npm/gitbook-start-plugin-iaas-ull-es-ericlucastania/1.0.15/package/package.json written
+20 silly publish { name: 'gitbook-start-plugin-iaas-ull-es-ericlucastania',
+20 silly publish   version: '1.0.15',
+20 silly publish   description: 'Plugin que permite hacer un despliegue automático en el IAAS',
+20 silly publish   main: 'script.js',
+20 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+20 silly publish   author: { name: 'Eric Ramos Suárez Lucas Ruiz González Tania González Rodriguez' },
+20 silly publish   iaas:
+20 silly publish    { user: 'usuario',
+20 silly publish      ip: '10.6.128.159',
+20 silly publish      command: 'cd /home/usuario/Sytw/Styw3;git pull origin master' },
+20 silly publish   license: 'ISC',
+20 silly publish   _id: 'gitbook-start-plugin-iaas-ull-es-ericlucastania@1.0.15',
+20 silly publish   _shasum: '91387f878694680e33af3c59ba9ec91e6ad406d5',
+20 silly publish   _from: '.',
+20 silly publish   _npmVersion: '2.15.9',
+20 silly publish   _nodeVersion: '4.5.0',
+20 silly publish   _npmUser: { name: 'joselucas', email: 'alu0100785265@ull.edu.es' },
+20 silly publish   dist:
+20 silly publish    { shasum: '04c6dc46186f8ae84c46a59132ae37944ab13bc4',
+20 silly publish      tarball: 'https://registry.npmjs.org/gitbook-start-plugin-iaas-ull-es-ericlucastania/-/gitbook-start-plugin-iaas-ull-es-ericlucastania-1.0.0.tgz' },
+20 silly publish   maintainers: [ { name: 'joselucas', email: 'alu0100785265@ull.edu.es' } ],
+20 silly publish   _npmOperationalInternal:
+20 silly publish    { host: 'packages-16-east.internal.npmjs.com',
+20 silly publish      tmp: 'tmp/gitbook-start-plugin-iaas-ull-es-ericlucastania-1.0.0.tgz_1476819891568_0.4614172945730388' },
+20 silly publish   directories: {},
+20 silly publish   _resolved: 'https://registry.npmjs.org/gitbook-start-plugin-iaas-ull-es-ericlucastania/-/gitbook-start-plugin-iaas-ull-es-ericlucastania-1.0.0.tgz',
+20 silly publish   dependencies: { 'node-ssh': '^3.0.1', 'simple-ssh': '^0.9.0' },
+20 silly publish   readme: '##README del despliegue del gitbook-pluguin en iaas\n',
+20 silly publish   readmeFilename: 'README.md',
+20 silly publish   gitHead: 'd633b2a33e83748c728ece6ee5b5cf2de7cd2ac9' }
+21 verbose getPublishConfig undefined
+22 silly mapToRegistry name gitbook-start-plugin-iaas-ull-es-ericlucastania
+23 silly mapToRegistry using default registry
+24 silly mapToRegistry registry https://registry.npmjs.org/
+25 silly mapToRegistry data Result {
+25 silly mapToRegistry   raw: 'gitbook-start-plugin-iaas-ull-es-ericlucastania',
+25 silly mapToRegistry   scope: null,
+25 silly mapToRegistry   name: 'gitbook-start-plugin-iaas-ull-es-ericlucastania',
+25 silly mapToRegistry   rawSpec: '',
+25 silly mapToRegistry   spec: 'latest',
+25 silly mapToRegistry   type: 'tag' }
+26 silly mapToRegistry uri https://registry.npmjs.org/gitbook-start-plugin-iaas-ull-es-ericlucastania
+27 verbose publish registryBase https://registry.npmjs.org/
+28 silly publish uploading /home/ubuntu/.npm/gitbook-start-plugin-iaas-ull-es-ericlucastania/1.0.15/package.tgz
+29 verbose request uri https://registry.npmjs.org/gitbook-start-plugin-iaas-ull-es-ericlucastania
+30 verbose request sending authorization for write operation
+31 info attempt registry request try #1 at 4:37:58 PM
+32 verbose request using bearer token for auth
+33 verbose request id 9277cbb83677a209
+34 http request PUT https://registry.npmjs.org/gitbook-start-plugin-iaas-ull-es-ericlucastania
+35 http 403 https://registry.npmjs.org/gitbook-start-plugin-iaas-ull-es-ericlucastania
+36 verbose headers { 'content-type': 'application/json',
+36 verbose headers   'cache-control': 'max-age=300',
+36 verbose headers   'content-length': '96',
+36 verbose headers   'accept-ranges': 'bytes',
+36 verbose headers   date: 'Thu, 20 Oct 2016 16:37:59 GMT',
+36 verbose headers   via: '1.1 varnish',
+36 verbose headers   connection: 'keep-alive',
+36 verbose headers   'x-served-by': 'cache-lhr6327-LHR',
+36 verbose headers   'x-cache': 'MISS',
+36 verbose headers   'x-cache-hits': '0',
+36 verbose headers   'x-timer': 'S1476981478.461427,VS0,VE899',
+36 verbose headers   vary: 'Accept-Encoding' }
+37 verbose request invalidating /home/ubuntu/.npm/registry.npmjs.org/gitbook-start-plugin-iaas-ull-es-ericlucastania on PUT
+38 error publish Failed PUT 403
+39 verbose stack Error: "You cannot publish over the previously published version 1.0.15." : gitbook-start-plugin-iaas-ull-es-ericlucastania
+39 verbose stack     at makeError (/home/ubuntu/.nvm/versions/node/v4.5.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+39 verbose stack     at CachingRegistryClient.<anonymous> (/home/ubuntu/.nvm/versions/node/v4.5.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+39 verbose stack     at Request._callback (/home/ubuntu/.nvm/versions/node/v4.5.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+39 verbose stack     at Request.self.callback (/home/ubuntu/.nvm/versions/node/v4.5.0/lib/node_modules/npm/node_modules/request/request.js:200:22)
+39 verbose stack     at emitTwo (events.js:87:13)
+39 verbose stack     at Request.emit (events.js:172:7)
+39 verbose stack     at Request.<anonymous> (/home/ubuntu/.nvm/versions/node/v4.5.0/lib/node_modules/npm/node_modules/request/request.js:1067:10)
+39 verbose stack     at emitOne (events.js:82:20)
+39 verbose stack     at Request.emit (events.js:169:7)
+39 verbose stack     at IncomingMessage.<anonymous> (/home/ubuntu/.nvm/versions/node/v4.5.0/lib/node_modules/npm/node_modules/request/request.js:988:12)
+40 verbose statusCode 403
+41 verbose pkgid gitbook-start-plugin-iaas-ull-es-ericlucastania
+42 verbose cwd /home/ubuntu/workspace/Plugins/gitbook-start-plugin-iaas-ull-es-ericlucastania
+43 error Linux 4.2.0-c9
+44 error argv "/home/ubuntu/.nvm/versions/node/v4.5.0/bin/node" "/home/ubuntu/.nvm/versions/node/v4.5.0/bin/npm" "publish"
+45 error node v4.5.0
+46 error npm  v2.15.9
+47 error code E403
+48 error "You cannot publish over the previously published version 1.0.15." : gitbook-start-plugin-iaas-ull-es-ericlucastania
+49 error If you need help, you may report this error at:
+49 error     <https://github.com/npm/npm/issues>
+50 verbose exit [ 1, true ]
