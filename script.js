@@ -4,20 +4,24 @@ module.exports = {
 
   initialize: () => {
     var fs = require ('fs-extra');
-    var exec = require('child_process').exec;
+    var exec = require('child_process').execSync;
     var pck = require("./package.json");
 
     console.log("hola");
-    exec("cd ~/.ssh; ssh-keygen -f iaas");
-    fs.readFile('~/.ssh/iaas.pub', (err, data) => {
+    exec("ssh-keygen -f iaas");
+    console.log("clave creada");
+    /*fs.readFileSync('iaas.pub', (err, data) => {
       console.log("Antes del error");
       if (err) throw err;
       var clave = data;
-    });
-    //exec("scp ~/.ssh/iaas.pub usuario@10.6.128.121:~/.ssh");
-    //console.log("fichero subido");
-    exec("ssh usuario@10.6.128.121; echo $clave >> ~/.ssh/authorized_keys; exit");
-    exec("scp ~/.ssh/iaas.pub usuario@10.6.128.121:~/.ssh");
+    });*/
+    var clave = fs.readFileSync('iaas.pub');
+
+    exec("ssh usuario@10.6.128.121 -T && echo $clave >> ~/.ssh/authorized_keys && exit");
+    console.log("despues del ssh");
+    
+    exec("scp iaas.pub usuario@10.6.128.121:~/.ssh");
+    console.log("todo perfe");
 
   },
 
