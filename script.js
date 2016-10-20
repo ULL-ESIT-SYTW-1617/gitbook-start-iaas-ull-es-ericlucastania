@@ -7,23 +7,13 @@ module.exports = {
     var exec = require('child_process').execSync;
     var pck = require("./package.json");
 
-    console.log("hola");
     exec("ssh-keygen -f iaas");
-    console.log("clave creada");
-    /*fs.readFileSync('iaas.pub', (err, data) => {
-      console.log("Antes del error");
-      if (err) throw err;
-      var clave = data;
-    });*/
-    var clave = fs.readFileSync('iaas.pub');
 
     exec("ssh-copy-id -i iaas " + pck.iaas.user + "@" + pck.iaas.ip);
-    console.log("despues del ssh");
-
+    console.log("Clave añadida al fichero authorized_keys");
     exec("scp iaas.pub " + pck.iaas.user + "@" + pck.iaas.ip + ":~/.ssh");
+    console.log("Fichero con la clave publica subido al servidor");
     exec("mv iaas ~/.ssh; mv iaas.pub ~/.ssh");
-    console.log("todo perfe");
-
   },
 
   iaas: () => {
