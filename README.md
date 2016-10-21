@@ -1,28 +1,22 @@
-# Tareas-Iniciales-EricLucasTania
+# Creación del paquete Gitbook-star-plugin-iaas-ull-es-ericlucastania
 
-![gif](/gif/gif.GIF)
 
 
   
 ## Descripción de la práctica.
 
-El objetivo de esta práctica es familiarizarnos con el entorno de **Gitbook** así como los plugins, y las distintas 
-opciones que ofrece esta plataforma. Para ello hemos partido de un repositorio de ayuda, que hemos moldeado a nuestro
-gusto dándonos como resultado el siguiente [**documento gitbook**](https://ULL-ESIT-SYTW-1617.github.io/tareas-iniciales-ericlucastania).
+
 
 ## Enlaces interesantes 
  
-[Gitbook gh-pages](https://ULL-ESIT-SYTW-1617.github.io/tareas-iniciales-ericlucastania).
 
-
-[Gitbook página oficial](https://www.gitbook.com/book/alu0100786330/tareasini/details).
 
 
 
 ## Datos de partida
 
-* [Repositorio Inicial](https://github.com/enten/gitbook-boilerplate) 
-* [Descripción de la práctica.](https://crguezl.github.io/ull-esit-1617/practicas/practicagitbook.html)
+* [Repositorio Inicial](https://github.com/ULL-ESIT-SYTW-1617/gitbook-start-plugin-iaas-ull-es-ericlucastania) 
+* [Descripción de la práctica.](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/practicas/practicaplugin.html)
 
 
 ## Componentes del grupo de trabajo
