@@ -11,11 +11,8 @@ module.exports = {
     console.log("Introduzca la clave para configurar la clave authorized_keys \n");
     exec("ssh-copy-id -i iaas " + pck.iaas.user + "@" + pck.iaas.ip);
     console.log("Clave añadida al fichero authorized_keys\n");
-        console.log("Introduzca la clave una última vez para configurar la clave publica \n");
-
-    exec("scp iaas.pub " + pck.iaas.user + "@" + pck.iaas.ip + ":~/.ssh");
-    console.log("Fichero con la clave publica subido al servidor");
-    exec("mv iaas ~/.ssh; mv iaas.pub ~/.ssh");
+    
+    
   },
 
   deploy: () => {
