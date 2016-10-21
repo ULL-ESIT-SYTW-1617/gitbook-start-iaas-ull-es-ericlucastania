@@ -11,7 +11,7 @@
   },
   "iaas": {
     "user": "usuario",
-    "ip": "10.6.128.121",
+    "ip": "10.6.128.159",
     "command": "cd /home/usuario/Sytw/Styw3;git pull origin master"
   },
   "license": "ISC",
