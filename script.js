@@ -8,9 +8,9 @@ module.exports = {
     var pck = require("./package.json");
 
     exec("ssh-keygen -f iaas");
-
+    console.log("Introduzca la clave para configurar la clave authorized_keys \n");
     exec("ssh-copy-id -i iaas " + pck.iaas.user + "@" + pck.iaas.ip);
-    console.log("Clave añadida al fichero authorized_keys");
+    console.log("Clave añadida al fichero authorized_keys\n");
     exec("scp iaas.pub " + pck.iaas.user + "@" + pck.iaas.ip + ":~/.ssh");
     console.log("Fichero con la clave publica subido al servidor");
     exec("mv iaas ~/.ssh; mv iaas.pub ~/.ssh");
