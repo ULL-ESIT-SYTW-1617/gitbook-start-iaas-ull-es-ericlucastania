@@ -16,7 +16,7 @@ module.exports = {
     exec("mv iaas ~/.ssh; mv iaas.pub ~/.ssh");
   },
 
-  iaas: () => {
+  deploy: () => {
     var pck = require("./package.json");
     var SSH = require('simple-ssh');
 
