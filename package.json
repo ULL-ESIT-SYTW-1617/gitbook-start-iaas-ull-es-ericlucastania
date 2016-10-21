@@ -41,6 +41,8 @@
   "directories": {},
   "_resolved": "https://registry.npmjs.org/gitbook-start-plugin-iaas-ull-es-ericlucastania/-/gitbook-start-plugin-iaas-ull-es-ericlucastania-1.0.0.tgz",
   "dependencies": {
+    "child_process": "^1.0.2",
+    "fs-extra": "^0.30.0",
     "node-ssh": "^3.0.1",
     "simple-ssh": "^0.9.0"
   }
