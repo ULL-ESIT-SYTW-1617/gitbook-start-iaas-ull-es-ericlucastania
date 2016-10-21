@@ -32,8 +32,17 @@
     {
       "name": "joselucas",
       "email": "alu0100785265@ull.edu.es"
+    },
+    {
+      "name": "tania77",
+      "email": "alu0100785265@ull.edu.es"
+    },
+    {
+      "name": "eric",
+      "email": "alu0100786330@ull.edu.es"
     }
   ],
+  
   "_npmOperationalInternal": {
     "host": "packages-16-east.internal.npmjs.com",
     "tmp": "tmp/gitbook-start-plugin-iaas-ull-es-ericlucastania-1.0.0.tgz_1476819891568_0.4614172945730388"
