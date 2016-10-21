@@ -1,6 +1,6 @@
 {
   "name": "gitbook-start-plugin-iaas-ull-es-ericlucastania",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "Plugin que permite hacer un despliegue automático en el IAAS",
   "main": "script.js",
   "scripts": {
@@ -33,9 +33,7 @@
       "name": "joselucas",
       "email": "alu0100785265@ull.edu.es"
     }
-   
   ],
-  
   "_npmOperationalInternal": {
     "host": "packages-16-east.internal.npmjs.com",
     "tmp": "tmp/gitbook-start-plugin-iaas-ull-es-ericlucastania-1.0.0.tgz_1476819891568_0.4614172945730388"
