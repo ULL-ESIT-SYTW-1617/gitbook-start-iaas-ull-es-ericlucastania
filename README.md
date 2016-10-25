@@ -30,6 +30,7 @@ Una vez que se tiene claro los anteriores conceptos tambien tiene que tener en c
 
 ## Instrucciones de uso
 Tenga en cuenta que para que el plugin funcione correctamente debe cambiar algunas cosas en el package.json
-* Deberá poner la IP de su maquina del iaas.[]()
+* Deberá poner la IP de su maquina del iaas.
+![](https://4.bp.blogspot.com/-Jjhh_IM9FAw/WA9EbkzsEoI/AAAAAAAAAoc/84cO_lVXgCYD6ekx1YzSV6LEjsCitH0AACLcB/s1600/iass.png)
 * Para que el pull funcione correctamente en su máquina, deberá cambiar la ruta que aparece en command por la suya.[]()
 * Tenga en cuenta que si el usuario de su máquina no es "usuario" deberá también cambiar esto en el fichero package.json []()
