@@ -9,7 +9,7 @@
 
 
  
-El objetivo de la práctica es llegar a que el usuario puede descargar el plugin ´´´gitbook-start-plugin-iaas-ull-es-ericlucastania´´´
+El objetivo de la práctica es llegar a que el usuario puede descargar el plugin ``` gitbook-start-plugin-iaas-ull-es-ericlucastania```
 de manera local en su maquina.El usuario tiene que tener en cuenta que tiene que tener previamente un cuenta en el iaas y tener un clone de su repositorio.
 Una vez que se tiene claro los anteriores conceptos tambien tiene que tener en cuenta  
 
