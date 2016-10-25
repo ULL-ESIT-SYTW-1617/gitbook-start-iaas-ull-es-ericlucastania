@@ -25,3 +25,11 @@ Una vez que se tiene claro los anteriores conceptos tambien tiene que tener en c
 * [Eric Ramos](https://github.com/alu0100786330)
 * [Lucas Ruiz](https://github.com/alu0100785265)
 * [Tania González](https://github.com/tania77)
+
+
+
+## Instrucciones de uso
+Tenga en cuenta que para que el plugin funcione correctamente debe cambiar algunas cosas en el package.json
+* Deberá poner la IP de su maquina del iaas.[]()
+* Para que el pull funcione correctamente en su máquina, deberá cambiar la ruta que aparece en command por la suya.[]()
+* Tenga en cuenta que si el usuario de su máquina no es "usuario" deberá también cambiar esto en el fichero package.json []()
