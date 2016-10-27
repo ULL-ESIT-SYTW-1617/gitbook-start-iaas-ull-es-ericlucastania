@@ -12,7 +12,7 @@
   "iaas": {
     "user": "usuario",
     "ip": "10.6.128.121",
-    "command": "cd /home/usuario/prueba/;git pull origin master"
+    "command": "cd /home/usuario/prueba/gitbook-start-iaas-ull-es-ericlucastania;git pull origin master"
   },
   "license": "ISC",
   "_id": "gitbook-start-plugin-iaas-ull-es-ericlucastania@1.0.0",
