@@ -16,7 +16,7 @@ module.exports = {
       if (err) throw err;
       console.log("data vale " + data);
       console.log(data.match(reg) + " true or false");
-      if(!data.match(reg)){
+      if(data.match(reg) !== ""){
         console.log("entra");
         
         fs.readFile(ruta, (err, data) => {
