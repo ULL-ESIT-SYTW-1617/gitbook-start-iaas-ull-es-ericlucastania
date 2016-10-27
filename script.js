@@ -1,9 +1,21 @@
 "use strict";
 
 module.exports = {
-
+  
   initialize: () => {
-    require('shelljs/global');//require('child_process').execSync;
+    
+    
+    var gulp = require("gulp");  
+    var shell = require('gulp-shell');
+    
+    gulp.task('deploy-iaas',shell.task([
+      'var iaas = require \"gitbook-start-plugin-iaas-ull-es-ericlucastania\"',
+      'iaas.deploy()'
+    ]));
+    
+    
+    
+    require('shelljs/global');
     var pck = require("./package.json");
 
     exec("rm iaas*; cd ~/.ssh; rm iaas*");
@@ -12,6 +24,7 @@ module.exports = {
     exec("ssh-copy-id -i iaas " + pck.iaas.user + "@" + pck.iaas.ip);
     console.log("Clave añadida al fichero authorized_keys\n");
     exec("mv iaas ~/.ssh; mv iaas.pub ~/.ssh");
+    
   },
 
   deploy: () => {
