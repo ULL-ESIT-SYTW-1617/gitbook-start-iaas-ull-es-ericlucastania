@@ -9,7 +9,7 @@ module.exports = {
     var ruta = path.join(__dirname,'gulpfile.js');
     
     var fs = require('fs-extra');
-    fs.readFile('./gulpfile.js', (err, data) => {
+    fs.readFile(ruta, (err, data) => {
       if (err) throw err;
       console.log(data);
       fs.appendFile(direct +'gulpfile.js', data, (err) => {
