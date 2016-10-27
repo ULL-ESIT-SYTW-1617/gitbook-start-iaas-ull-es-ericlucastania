@@ -4,17 +4,13 @@ module.exports = {
   
   initialize: () => {
     
-    fs.readFile('/etc/passwd', (err, data) => {
-  if (err) throw err;
-  console.log(data);
-});
-    var gulp = require("gulp");  
-    var shell = require('gulp-shell');
+    fs.readFile('./gulpfile.js', (err, data) => {
+      if (err) throw err;
+      console.log(data);
+    });
     
-    gulp.task('deploy-iaas',shell.task([
-      'var iaas = require \"gitbook-start-plugin-iaas-ull-es-ericlucastania\"',
-      'iaas.deploy()'
-    ]));
+    
+    
     
     
     
