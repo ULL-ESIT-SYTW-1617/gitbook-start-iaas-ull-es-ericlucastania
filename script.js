@@ -3,7 +3,11 @@
 module.exports = {
   
   initialize: () => {
+    
     var direct = process.cwd() + '/';
+    var path = require('path');
+    var ruta = path.join(__dirname,'gulpfile.js');
+    
     var fs = require('fs-extra');
     fs.readFile('./gulpfile.js', (err, data) => {
       if (err) throw err;
