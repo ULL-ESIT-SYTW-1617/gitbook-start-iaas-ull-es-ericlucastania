@@ -4,12 +4,15 @@ module.exports = {
   
   initialize: () => {
     
-    var ruta = path.join(__dirname,'gulpfile.js');
-    var fs = require('fs-extra');
+    
+    
     
     
     var direct = process.cwd() + '/';
     var path = require('path');
+    
+    var ruta = path.join(__dirname,'gulpfile.js');
+    var fs = require('fs-extra');
     
     
     console.log(direct);
