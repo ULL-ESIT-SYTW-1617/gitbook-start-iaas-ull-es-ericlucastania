@@ -9,12 +9,13 @@ module.exports = {
     var reg =/deploy-iaas/gi;
     var ruta = path.join(__dirname,'gulpfile.js');
     var fs = require('fs-extra');
-    
+    console.log(reg +  " expresion");
     
     fs.readFile(direct + 'gulpfile.js', (err, data) => {
       if (err) throw err;
-      
+      console.log(data.match(reg) + " true or false");
       if(!data.match(reg)){
+        console.log("entra");
         
         fs.readFile(ruta, (err, data) => {
           if (err) throw err;
@@ -28,14 +29,14 @@ module.exports = {
       }
     });
     
-    
-    
-
-    
     require('shelljs/global');
     var pck = require("./package.json");
-
-    exec("rm iaas*; cd ~/.ssh; rm iaas*");
+    try {
+      exec("rm iaas*; cd ~/.ssh; rm iaas*");
+    } catch (err) {
+      console.log("Creando claves");
+    }
+    
     exec("ssh-keygen -f iaas");
     console.log("Introduzca la clave para configurar la clave authorized_keys \n");
     exec("ssh-copy-id -i iaas " + pck.iaas.user + "@" + pck.iaas.ip);
