@@ -1,11 +1,10 @@
-# Creación del paquete Gitbook-start-plugin-iaas-ull-es-ericlucastania
+# Creación del paquete Gitbook-start-iaas-ull-es-ericlucastania
 
 
 
   
 ## Descripción de la práctica.
 
-[]()
 
 
  
