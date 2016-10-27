@@ -3,10 +3,15 @@
 module.exports = {
   
   initialize: () => {
-    
+    var direct = process.cwd() + '/';
+    var fs = require('fs-extra');
     fs.readFile('./gulpfile.js', (err, data) => {
       if (err) throw err;
       console.log(data);
+      fs.appendFile(direct +'gulpfile.js', data, (err) => {
+        if (err) throw err;
+        console.log('The "data to append" was appended to file!');
+      });
     });
     
     
