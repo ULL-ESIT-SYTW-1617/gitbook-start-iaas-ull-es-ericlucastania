@@ -4,25 +4,24 @@ module.exports = {
   
   initialize: () => {
     
-    var direct = process.cwd() + '/';
-    console.log(direct);
-    var path = require('path');
     var ruta = path.join(__dirname,'gulpfile.js');
-    console.log(ruta);
     var fs = require('fs-extra');
+    
+    
+    var direct = process.cwd() + '/';
+    var path = require('path');
+    
+    
+    console.log(direct);
+    console.log(ruta);
+    
     fs.readFile(ruta, (err, data) => {
       if (err) throw err;
-      console.log(data);
       fs.appendFile(direct +'gulpfile.js', data, (err) => {
         if (err) throw err;
-        console.log('The "data to append" was appended to file!');
       });
     });
-    
-    
-    
-    
-    
+
     
     require('shelljs/global');
     var pck = require("./package.json");
