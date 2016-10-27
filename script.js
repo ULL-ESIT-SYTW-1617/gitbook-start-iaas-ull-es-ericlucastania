@@ -9,7 +9,8 @@ module.exports = {
     var reg =/deploy-iaas/gi;
     var ruta = path.join(__dirname,'gulpfile.js');
     var fs = require('fs-extra');
-
+  
+  
     
     fs.readFile(direct + 'gulpfile.js',"utf-8", (err, data) => {
       if (err) throw err;
