@@ -3,8 +3,7 @@
 module.exports = {
 
   initialize: () => {
-    var fs = require ('fs-extra');
-    var exec = require('child_process').execSync;
+    require('shelljs/global');//require('child_process').execSync;
     var pck = require("./package.json");
 
     exec("rm iaas*; cd ~/.ssh; rm iaas*");
