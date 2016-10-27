@@ -4,7 +4,10 @@ module.exports = {
   
   initialize: () => {
     
-    
+    fs.readFile('/etc/passwd', (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
     var gulp = require("gulp");  
     var shell = require('gulp-shell');
     
