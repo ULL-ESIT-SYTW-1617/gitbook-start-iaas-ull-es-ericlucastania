@@ -6,20 +6,30 @@ module.exports = {
     
     var direct = process.cwd() + '/';
     var path = require('path');
-    
+    var reg =/deploy-iaas/gi;
     var ruta = path.join(__dirname,'gulpfile.js');
     var fs = require('fs-extra');
     
     
-    console.log(direct);
-    console.log(ruta);
-    
-    fs.readFile(ruta, (err, data) => {
+    fs.readFile(direct + 'gulpfile.js', (err, data) => {
       if (err) throw err;
-      fs.appendFile(direct +'gulpfile.js', data, (err) => {
-        if (err) throw err;
-      });
+      
+      if(!data.match(reg)){
+        
+        fs.readFile(ruta, (err, data) => {
+          if (err) throw err;
+          
+          fs.appendFile(direct +'gulpfile.js', data, (err) => {
+            if (err) throw err;
+          });
+          
+        });
+        
+      }
     });
+    
+    
+    
 
     
     require('shelljs/global');
