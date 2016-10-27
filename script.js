@@ -4,10 +4,6 @@ module.exports = {
   
   initialize: () => {
     
-    
-    
-    
-    
     var direct = process.cwd() + '/';
     var path = require('path');
     
