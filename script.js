@@ -29,7 +29,8 @@ module.exports = {
     });
     
     require('shelljs/global');
-    var pck = require("./package.json");
+    var pck = require(process.cwd()+ "/package.json");
+    console.log(process.cwd()+ "/package.json");
       try{
         exec("rm iaas*; cd ~/.ssh; rm iaas*", function(code, stdout, stderr) {
             if(stderr){
