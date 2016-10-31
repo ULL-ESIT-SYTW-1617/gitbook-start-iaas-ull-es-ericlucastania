@@ -27,39 +27,30 @@ module.exports = {
         
       }
     });
-    
+    /*
     require('shelljs/global');
-    var pck = require(process.cwd()+ "/package.json");
-    console.log(process.cwd()+ "/package.json");
-      try{
-        exec("rm iaas*; cd ~/.ssh; rm iaas*", function(code, stdout, stderr) {
-            if(stderr){
-              console.log("Creando claves");          
-            }
-        });
-      }
-      catch(err){
-        
-      }
-    
-    
+    var pck = require("./package.json");
+      
+    exec("rm iaas*; cd ~/.ssh; rm iaas*", function(code, stdout, stderr) {
+        if(stderr){
+          console.log("Creando claves");          
+        }
+    });
+      
     exec("ssh-keygen -f iaas");
     exec("ssh-copy-id -i iaas " + pck.iaas.user + "@" + pck.iaas.ip);
     console.log("Clave añadida al fichero authorized_keys\n");
-    try{
-      exec("mv iaas ~/.ssh; mv iaas.pub ~/.ssh",function(code, stdout, stderr) {
-            if(stderr){
-              console.log("No se pudo mover las claves");          
-            }
-        });
-    }
-    catch(err){
-      
-    }
+    exec("mv iaas ~/.ssh; mv iaas.pub ~/.ssh",function(code, stdout, stderr) {
+          if(stderr){
+            console.log("No se pudo mover las claves");          
+          }
+      });
+    }*/
+   
   },
 
   deploy: () => {
-    var pck = require("./package.json");
+    var pck = require(process.cwd() + "/package.json");
     var SSH = require('simple-ssh');
 
     var ssh = new SSH({
