@@ -36,7 +36,6 @@ module.exports = {
       rm('iaas*');
     }
     catch(err){
-      console.log("Creando clave iaas");
     }
     
     
