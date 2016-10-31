@@ -32,16 +32,22 @@ module.exports = {
     var pck = require("./package.json");
     try {
       exec("rm iaas*; cd ~/.ssh; rm iaas*");
-    } catch (err) {
-      console.log("Creando claves");
     }
+    catch(err){
+      console.log("Creando clave iaas");
+    }
+    
     
     exec("ssh-keygen -f iaas");
     console.log("Introduzca la clave para configurar la clave authorized_keys \n");
     exec("ssh-copy-id -i iaas " + pck.iaas.user + "@" + pck.iaas.ip);
     console.log("Clave añadida al fichero authorized_keys\n");
-    exec("mv iaas ~/.ssh; mv iaas.pub ~/.ssh");
-    
+    try{
+      exec("mv iaas ~/.ssh; mv iaas.pub ~/.ssh");
+    }
+    catch(err){
+      console.log("no se ha podido mover las claves al directorio ~/.ssh");
+    }
   },
 
   deploy: () => {
