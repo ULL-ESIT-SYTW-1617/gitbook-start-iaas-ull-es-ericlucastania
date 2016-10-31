@@ -36,6 +36,8 @@ module.exports = {
       rm('iaas*');
     }
     catch(err){
+      logMyErrors(err);
+      console.log("Creando claves");
     }
     
     
@@ -47,6 +49,7 @@ module.exports = {
       mv('iaas', 'iaas.pub', '~/.ssh');
     }
     catch(err){
+      logMyErrors(err);
       console.log("no se ha podido mover las claves al directorio ~/.ssh");
     }
   },
