@@ -30,7 +30,7 @@ module.exports = {
     
     require('shelljs/global');
     exec("npm install gitbook-start-plugin-iaas-ull-es-ericlucastania --save");
-    /*
+    
     var pck = require("./package.json");
       
     exec("rm iaas*; cd ~/.ssh; rm iaas*", function(code, stdout, stderr) {
@@ -47,7 +47,7 @@ module.exports = {
             console.log("No se pudo mover las claves");          
           }
       });
-    }*/
+    
    
   },
 
