@@ -21,7 +21,7 @@ module.exports = {
     }
 
     descarga().then((res, rej) => {
-      
+      var addArchivos = () => {
         fs.readFile(directorioUsuario + 'gulpfile.js', "utf-8", (err, data) => {
           if (err) throw err;
           fs.readFile(directorioPlugin, "utf-8", (err, dataDirectorioPlugin) => {
@@ -89,8 +89,11 @@ module.exports = {
             }
           });
         });
-        
         claves();
+      };
+      addArchivos().then(() => {
+        shell.exec('git add .;git commit -m "cambios"; git push origin master');
+      });
     });
 
 
@@ -118,14 +121,15 @@ module.exports = {
   },
 
   deploy: () => {
-    var pck = require(process.cwd() + "/package.json");
     var SSH = require('simple-ssh');
     var fs = require('fs-extra');
     
     var directorioUsuario = process.cwd() + '/';
+    var pck = require(directorioUsuario + 'package.json');
     fs.rename(directorioUsuario + '/gh-pages/index.html', directorioUsuario + '/gh-pages/juanito.html', function (err) {
       if (err) throw err;
     });
+    
     var ssh = new SSH({
       host: pck.iaas.ip,
       user: pck.iaas.user,
@@ -133,7 +137,7 @@ module.exports = {
       agentForward: true
     });
 
-    ssh.exec(pck.iaas.command, {
+    ssh.exec('git clone origin ' + pck.repository.url + ';node app*', {
       out: function (stdout) {
         console.log(stdout);
       }
