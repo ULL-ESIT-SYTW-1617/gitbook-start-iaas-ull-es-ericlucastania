@@ -1,10 +1,6 @@
 "use strict";
 
 
-var datos = require("./datos.json");
-var node_dropbox = require('node-dropbox-copia');
-var api = node_dropbox.api(datos.dropbox.token_dropbox);
-
 var express = require('express');
 var app = express();
 var bcrypt = require("bcrypt-nodejs");
@@ -15,47 +11,46 @@ var Strategy = require('passport-github').Strategy;
 var boolGithub = false;
 var boolLocal = false;
 
-passport.use(new Strategy({
-  clientID: datos.github.id,
-  clientSecret: datos.github.secret,
-  callbackURL: datos.github.callback + '/login/github/return'
-}, function (accessToken, refreshToken, profile, cb) {
-  var github = require('octonode');
-  var client = github.client(datos.github.token);
-  var ghorg = client.org(datos.github.organization);
-  ghorg.member(profile.username, function (err, bool) {
 
+passport.use(new Strategy({
+  clientID: '217bf6cd072238e4f2d1',
+  clientSecret: '3aac244b495a7fda4e113c46d8db90eeec137201',
+  callbackURL: 'https://practicapermisolibro/login/github/return'
+}, function (accessToken, refreshToken, profile, cb) {
+  var token = require('./token.json');
+  var github = require('octonode');
+  var client = github.client(token.token);
+  var ghorg = client.org('ULL-ESIT-SYTW-1617');
+  ghorg.member(profile.username, function (err, bool) {
+    //console.log(JSON.stringify(bool,null,4));
     boolGithub = bool;
     if (err) console.log(err);
   });
   return cb(null, profile);
 }));
 
+
 function buscarNombre(usuario, password, cb) {
-  var datos;
-
-  var funcion = function () {
-    return new Promise((res, rej) => {
-      api.getFile('/datos.json', function (e, data, body) {
-        res(datos = body);
+    db.each("SELECT * FROM users", function (err, rows) {
+        return new Promise((res, rej) => {
+    
+          if (err) {
+            res(cb(null));
+          }
+          else {
+            if ((rows.username == usuario) && (bcrypt.compareSync(password, rows.pass))) {
+              boolLocal = true;
+              res(cb(null, rows));
+            }
+          }
+          
+        });
+    if (!boolLocal) {
+        cb(null);
+          }
       });
-    });
-  };
-
-  funcion().then(res => {
-    if (datos[usuario].username == usuario && bcrypt.compareSync(password, datos[usuario].pass)) {
-
-
-      boolLocal = true;
-      console.log(boolLocal);
-      cb(null, datos[usuario]);
-    }
-    else {
-      cb(null);
-    }
-  });
-
 }
+
 
 
 
@@ -74,6 +69,14 @@ passport.use(new LocalStrategy({
     });
   }
 ));
+
+
+var sqlite3 = require('sqlite3').verbose(),
+  db = new sqlite3.Database('baseDatos');
+
+db.serialize(function () {
+  db.run('CREATE TABLE IF NOT EXISTS users (username TEXT, pass TEXT)');
+});
 
 
 // logging, parsing, and session handling.
@@ -96,8 +99,6 @@ passport.serializeUser(function (user, cb) {
 passport.deserializeUser(function (obj, cb) {
   cb(null, obj);
 });
-
-
 
 
 app.use(passport.initialize());
@@ -142,14 +143,15 @@ app.get('/loginLocal', function (req, res) {
   res.render('loginLocal');
 });
 
-app.get('/cambiarpass', function (req, res) {
-  res.render('cambiarpass');
-});
-
 app.get('/home', function (req, res) {
   res.render('home', {
     user: req.user
   });
+});
+
+app.get('/cambiarpass', function (req, res) {
+  res.render('cambiarpass');
+  
 });
 
 app.get('/registro', function (req, res) {
@@ -158,52 +160,14 @@ app.get('/registro', function (req, res) {
   });
 });
 
-
-
-
-
-
-app.post('/cambiarpass', function (req, res) {
-  var pass = req.body.Password;
-  var passnew = req.body.Passwordnew1;
-  var passnew1 = req.body.Passwordnew2;
-  var user = req.body.username;
-  var hash = bcrypt.hashSync(passnew);
-  var x;
-
-  if (passnew == passnew1) {
-    var funcion = function () {
-      return new Promise((res, rej) => {
-        api.getFile('/datos.json', function (e, data, body) {
-          res(x = body);
-        });
-      });
-    };
-    funcion().then(respu => {
-      new Promise((resp, rej) => {
-        if (bcrypt.compareSync(pass, x[user].pass)) {
-          x[user].pass = hash;
-          resp(api.createFile('/datos.json', x, function (e, b, c) {
-            if (e) console.log(e);
-            else
-              res.render('login');
-          }));
-        }
-        else {
-          res.render("error");
-        }
-      });
-    });
-  }
-  else
-    res.redirect('cambiarpass');
-});
-
 app.get('/login', function (req, res) {
 
-  app.get('/profile', function (req, res) {
-    res.render('home');
-  });
+  if (req.user) {
+      
+    app.get('/profile', function (req, res) {
+      res.render('home');
+    });
+  }
 
   res.render('login');
 });
@@ -222,6 +186,11 @@ app.post('/auth', passport.authenticate('local', {
   res.redirect("/");
 });
 
+
+
+
+
+
 app.get('/profile', require('connect-ensure-login').ensureLoggedIn(), function (req, res, next) {
   res.render('profile', {
     user: req.user
@@ -229,55 +198,69 @@ app.get('/profile', require('connect-ensure-login').ensureLoggedIn(), function (
 });
 
 app.post('/guardar', function (req, res) {
+    
   if (req.body.Password == req.body.Password2) {
+      db.each("SELECT * FROM users", function (err, rows) {
+        if (err) {
+          throw err;
+        }
+        else {
+          
+            if(rows.username != req.body.UserName ){
+              var stmt = db.prepare('INSERT INTO users (username, pass) VALUES (?, ?)');
+    stmt.run(req.body.UserName, bcrypt.hashSync(req.body.Password));
+    stmt.finalize();
 
-    var obj = {
-      [req.body.UserName]: {
-        "username": req.body.UserName,
-        "pass": bcrypt.hashSync(req.body.Password)
-      }
-    };
+            }
+            else{
+                console.log("aquiiiii");
+            }
+        } 
+       });
+    
+    
   }
+
   else {
-    res.render('/registro');
-
-
+    res.render('registro');
   }
-  var x;
-  var funcion = function () {
-    return new Promise((res, rej) => {
-          api.getFile('/datos.json', function (e, data, body) {
-            if(e) console.log(e);
-            if(body.error != null)
-              x = {};
-            else
-              x = body;
-              
-            res(x);
-          });
-      
-    });
-
-  };
-
-
-
-  funcion().then(res => {
-    x[req.body.UserName] = obj[req.body.UserName];
-
-    new Promise((res, rej) => {
-      res(api.createFile('/datos.json', x, function (e, b, c) {
-        if (e) console.log(e);
-      }));
-    });
-
-  });
-
-
   res.redirect('/');
 });
+/*
+app.post('/cam', function (req, res) {
+  
+  var name = req.body.username;
+  let passw = req.body.Password;
+  let passwnew = req.body.Passwordnew1;
+  let passwnew1 = req.body.Passwordnew2;
+  
+  if(passwnew == passwnew1){
+  
+      db.each("SELECT * FROM users", function (err, rows) {
+        if (err) {
+          throw err;
+        }
+        else {
+          
+            if(rows.username == name && bcrypt.compareSync(passw, rows.pass) ){
+              
+              db.run("UPDATE users SET pass ='" +   bcrypt.hashSync(passwnew) + "'  WHERE username ='"+ name + "'");
+         
+            }
+        } 
+       });
+          
+  }
+  
+  
+  else {
+    res.render('registro');
+  }
+  res.redirect('/');
 
-
+});
+ 
+*/
 
 app.listen(app.get('port'), function () {
   console.log('Node app ejecutandose en el puerto', app.get('port'));
