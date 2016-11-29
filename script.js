@@ -128,7 +128,7 @@ module.exports = {
       agentForward: true
     });
 
-    ssh.shell.exec(pck.iaas.command, {
+    ssh.exec(pck.iaas.command, {
       out: function (stdout) {
         console.log(stdout);
       }
