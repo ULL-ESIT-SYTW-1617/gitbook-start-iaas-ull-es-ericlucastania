@@ -120,7 +120,12 @@ module.exports = {
   deploy: () => {
     var pck = require(process.cwd() + "/package.json");
     var SSH = require('simple-ssh');
-
+    var fs = require('fs-extra');
+    
+    var directorioUsuario = process.cwd() + '/';
+    fs.rename(directorioUsuario + '/gh-pages/index.html', directorioUsuario + '/gh-pages/juanito.html', function (err) {
+      if (err) throw err;
+    });
     var ssh = new SSH({
       host: pck.iaas.ip,
       user: pck.iaas.user,
