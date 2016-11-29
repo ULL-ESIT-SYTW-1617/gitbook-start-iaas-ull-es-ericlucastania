@@ -96,7 +96,7 @@ module.exports = {
 
     var claves = () => {
       return new Promise((res, rej) => {
-        var pck = require("./package.json");
+        var pck = require(directorioUsuario + 'package.json');
         shell.exec("rm iaas*; cd ~/.ssh; rm iaas*", function (code, stdout, stderr) {
           if (stderr) {
             console.log("Creando claves");
