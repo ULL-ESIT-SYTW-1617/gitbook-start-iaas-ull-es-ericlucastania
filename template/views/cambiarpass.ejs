@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cambio</title>
+
+<link rel="stylesheet" type="text/css" href="css/estilo.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script >
+    
+    
+    
+	pasActual=document.formName.Password;
+	pasNew1=document.formName.Passwordnew1;
+	pasNew2=document.formName.Passwordnew2;
+	
+
+	//Patron para los numeros
+	var patron1=new RegExp("[0-9]+");
+	//Patron para las letras
+	var patron2=new RegExp("[a-zA-Z]+");
+
+	if(pasNew1.value==pasNew2.value &&  pasActual.value!="" && pasNew1.value.search(patron1)>=0 && pasNew1.value.search(patron2)>=0){
+		//Todo correcto!!!
+		return true;
+	}
+    
+</script>
+</head>
+<body>
+    
+    
+
+<form method="post" action="/cambiarpass" name="formName">
+    <div class="login-form">
+     <h1>Cambiar contraseña</h1>
+         <div class="form-group ">
+           <input name ="UserName" type="text" class="form-control" placeholder="Introduce tu nombre de usuario" id="UserName">
+           <i class="fa fa-user"></i>
+         </div>
+         <div class="form-group log-status">
+           <input name ="Password" type="password" class="form-control" placeholder="Password" id="Password">
+           <i class="fa fa-lock"></i>
+         </div>
+         <div class="form-group log-status">
+           <input name ="Passwordnew1" type="password" class="form-control" placeholder="Introduce contraseña nueva" id="Passwordnew1">
+           <i class="fa fa-lock"></i>
+         </div>
+         <div class="form-group log-status">
+<<<<<<< HEAD
+           <input name ="Passwordnew2" type="password" class="form-control" placeholder="Introduce contraseña nueva" id="Passwordnew2">
+=======
+           <input name ="Passwordnew2" type="password" class="form-control" placeholder="Repite contraseña nueva" id="Passwordnew2">
+>>>>>>> e187bc77e5044af0debaeb9520fef4f7e078cdf9
+           <i class="fa fa-lock"></i>
+         </div>
+          
+          
+         <input id="cambio"  value ="cambio" type="submit" class="log-btn">
+    </div>
+</form>
+
+   </body>
+</html>

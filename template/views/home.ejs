@@ -1,0 +1,27 @@
+  <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/estilo.css">
+<% if (!user) { %>
+
+  <div class="login-form">
+     <h1>Si quiere acceder al libro debe iniciar sesión</h1>
+
+     <button type="button" class="log-btn" onclick="window.location='/login';">Log in</button>
+
+
+   </div>
+
+<% } else { %>
+	<div class="login-form">
+     <h1>Ver Profile</h1>
+
+     <button type="button" class="log-btn" onclick="window.location='/profile';">Profile</button>
+     
+   </div>
+   <div class="login-form">
+     <h1>Ver Libro</h1>
+
+     <button type="button" class="log-btn" onclick="window.location='/book';">Ver Libro</button>
+
+   </div>
+   
+<% } %>

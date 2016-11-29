@@ -1,0 +1,25 @@
+
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/estilo.css">
+<div class="login-form">
+  <table>
+    <tr>
+    <td>ID</td>
+    <td><%= user.id %></td>
+  </tr>
+  <tr>
+    <td>Username</td>
+    <td><%= user.username %></td>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td><%= user.displayName %></td>
+  </tr>
+  <tr>
+    <% if (user.emails) { %>
+    <td>Email</td>
+    <td><%= user.emails[0].value %></td>
+    <% } %>
+  </tr>
+  </table>
+</div>
