@@ -21,7 +21,7 @@ module.exports = {
     }
 
     descarga().then((res, rej) => {
-      claves().then((res2, rej2) => {
+      
         fs.readFile(directorioUsuario + 'gulpfile.js', "utf-8", (err, data) => {
           if (err) throw err;
           fs.readFile(directorioPlugin, "utf-8", (err, dataDirectorioPlugin) => {
@@ -89,8 +89,8 @@ module.exports = {
             }
           });
         });
-
-      });
+        
+        claves();
     });
 
 
