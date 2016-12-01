@@ -226,8 +226,8 @@ app.post('/guardar', function (req, res) {
   }
   res.redirect('/');
 });
-/*
-app.post('/cam', function (req, res) {
+
+app.post('/cambiarpass', function (req, res) {
   
   var name = req.body.username;
   let passw = req.body.Password;
@@ -260,7 +260,7 @@ app.post('/cam', function (req, res) {
 
 });
  
-*/
+
 
 app.listen(app.get('port'), function () {
   console.log('Node app ejecutandose en el puerto', app.get('port'));
