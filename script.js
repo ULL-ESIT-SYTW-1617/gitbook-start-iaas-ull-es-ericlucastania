@@ -22,74 +22,78 @@ module.exports = {
 
     descarga().then((res, rej) => {
       var addArchivos = () => {
-        fs.readFile(directorioUsuario + 'gulpfile.js', "utf-8", (err, data) => {
-          if (err) throw err;
-          fs.readFile(directorioPlugin, "utf-8", (err, dataDirectorioPlugin) => {
-            if (data.match(exp) == null) {
-              if (err) throw err;
-              fs.appendFile(directorioUsuario + 'gulpfile.js', dataDirectorioPlugin);
-            }
-            else {
-              var dataModificado = data.replace(exp, dataDirectorioPlugin);
-              fs.writeFile(directorioUsuario + 'gulpfile.js', dataModificado);
-            }
-          });
-        });
+        return new Promise((resadd, rejadd) => {
 
-        var frecursiva = (destino, origenArchivo) => {
-          try {
-            fs.readdir(origenArchivo, (err, files) => {
-              if (err) console.log(err);
-              files.forEach(files => {
-                var check = origenArchivo + '/' + files;
-                if (fs.statSync(check).isDirectory()) {
-                  fs.mkdirSync(destino + '/' + files);
-                  frecursiva(destino + '/' + files, check);
-                }
-                else {
-                  shell.cp(origenArchivo + '/' + files, destino);
-                }
 
-              });
+          fs.readFile(directorioUsuario + 'gulpfile.js', "utf-8", (err, data) => {
+            if (err) throw err;
+            fs.readFile(directorioPlugin, "utf-8", (err, dataDirectorioPlugin) => {
+              if (data.match(exp) == null) {
+                if (err) throw err;
+                fs.appendFile(directorioUsuario + 'gulpfile.js', dataDirectorioPlugin);
+              }
+              else {
+                var dataModificado = data.replace(exp, dataDirectorioPlugin);
+                fs.writeFile(directorioUsuario + 'gulpfile.js', dataModificado);
+              }
             });
-          }
-          catch (e) {
-            console.log("Error en copia");
-          }
+          });
 
-        };
+          var frecursiva = (destino, origenArchivo) => {
+            try {
+              fs.readdir(origenArchivo, (err, files) => {
+                if (err) console.log(err);
+                files.forEach(files => {
+                  var check = origenArchivo + '/' + files;
+                  if (fs.statSync(check).isDirectory()) {
+                    fs.mkdirSync(destino + '/' + files);
+                    frecursiva(destino + '/' + files, check);
+                  }
+                  else {
+                    shell.cp(origenArchivo + '/' + files, destino);
+                  }
 
-        fs.readdir(directorioPlugin2, (err, files) => {
+                });
+              });
+            }
+            catch (e) {
+              console.log("Error en copia");
+            }
 
-          if (err) console.log(err);
-          var auth = readlineSync.question('¿Quiere solicitar autentificación para que los usuarios puedan acceder a su libro?(s/n): ');
-          if ((auth == 's') || (auth == 'S') || (auth == '')) {
-            var posapp = files.indexOf("app.js");
-            files.splice(posapp, 1);
+          };
 
-          }
-          else if ((auth == 'n') || (auth == 'N')) {
-            var posappAuth = files.indexOf("appAuth.js");
-            files.splice(posappAuth, 1);
-          }
-          else {
-            console.log("Opción desconocida.");
-          }
-          var pos = files.indexOf("gulpfile.js");
-          files.splice(pos, 1);
+          fs.readdir(directorioPlugin2, (err, files) => {
 
-          files.forEach((archivo) => {
-            var check = directorioPlugin2 + '/' + archivo;
-            if (fs.statSync(check).isDirectory()) {
-              fs.mkdirSync(directorioUsuario + '/' + archivo);
-              frecursiva(directorioUsuario + '/' + archivo, check);
+            if (err) console.log(err);
+            var auth = readlineSync.question('¿Quiere solicitar autentificación para que los usuarios puedan acceder a su libro?(s/n): ');
+            if ((auth == 's') || (auth == 'S') || (auth == '')) {
+              var posapp = files.indexOf("app.js");
+              files.splice(posapp, 1);
+
+            }
+            else if ((auth == 'n') || (auth == 'N')) {
+              var posappAuth = files.indexOf("appAuth.js");
+              files.splice(posappAuth, 1);
             }
             else {
-              shell.cp(directorioPlugin2 + '/' + archivo, directorioUsuario);
+              console.log("Opción desconocida.");
             }
+            var pos = files.indexOf("gulpfile.js");
+            files.splice(pos, 1);
+
+            files.forEach((archivo) => {
+              var check = directorioPlugin2 + '/' + archivo;
+              if (fs.statSync(check).isDirectory()) {
+                fs.mkdirSync(directorioUsuario + '/' + archivo);
+                frecursiva(directorioUsuario + '/' + archivo, check);
+              }
+              else {
+                shell.cp(directorioPlugin2 + '/' + archivo, directorioUsuario);
+              }
+            });
           });
+          resadd(claves());
         });
-        claves();
       };
       addArchivos().then(() => {
         shell.exec('git add .;git commit -m "cambios"; git push origin master');
@@ -123,13 +127,13 @@ module.exports = {
   deploy: () => {
     var SSH = require('simple-ssh');
     var fs = require('fs-extra');
-    
+
     var directorioUsuario = process.cwd() + '/';
     var pck = require(directorioUsuario + 'package.json');
     fs.rename(directorioUsuario + '/gh-pages/index.html', directorioUsuario + '/gh-pages/juanito.html', function (err) {
       if (err) throw err;
     });
-    
+
     var ssh = new SSH({
       host: pck.iaas.ip,
       user: pck.iaas.user,
