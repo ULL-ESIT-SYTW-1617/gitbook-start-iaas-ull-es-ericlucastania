@@ -107,8 +107,31 @@ Tenga en cuenta que para que el plugin funcione correctamente debe cambiar algun
 
 ```gulp deploy-iaas```
 
+## Entrar en el IAAS
+
+El siguiente paso que deberás realizar es acceder al tu cuenta del iaas y si has seguido los pasos 
+hechos anteriormente,te deberá aparecer una carpeta llamada Gitbook,en ella tienes la clonación del repo
+Por último ejecuta 
+```bash 
+	node app*
+```
+Ahora simplemente pon ti IP y el puerto en el navegador y podrás acceder al login del Gitbook
+
+![](https://1.bp.blogspot.com/-lLq-_MEkYsM/WEBhC2Ar5AI/AAAAAAAAAqA/ImB9cNyxNycQU5ToUgsVst5d_2bPwI7-QCLcB/s1600/Captura%2Bde%2Bpantalla%2Bde%2B2016-12-01%2B17%253A41%253A41.png)
+
+Si no te has registrado anteriormente hazlo clicando en la parte que aparece justo encima del botón 
+login
+
+![](https://3.bp.blogspot.com/-JmjU0UCdEBA/WEBjJCGzzyI/AAAAAAAAAqM/SScW0jFBE6I-sBMLBpignzKteeNwjtWGACLcB/s1600/Captura%2Bde%2Bpantalla%2Bde%2B2016-12-01%2B17%253A49%253A30.png)
+
+Y en caso de estar registrado pon tus datos y si son correctos te llevará al Home donde tendrás la opción de ver tu profile o acceder al gitbook.
+
+![](https://3.bp.blogspot.com/-4Iuks1R4bhM/WEBkIgVxYsI/AAAAAAAAAqU/ZIyHRgBYN88ErbjAAqQFYVPVBLIUhzpvQCLcB/s1600/Captura%2Bde%2Bpantalla%2Bde%2B2016-12-01%2B17%253A55%253A29.png)
 
 
+Si quieres cambiar la contraseña accede desde el login a Cambiar contraseñadd
+
+![](https://1.bp.blogspot.com/-ohMGl5Zljso/WEBjbDRTqKI/AAAAAAAAAqQ/6n57bpjVoCAdwH6PrKdfPE1dFTl6c7NqgCLcB/s1600/Captura%2Bde%2Bpantalla%2Bde%2B2016-12-01%2B17%253A52%253A32.png)
 
 
 #### Explicación
