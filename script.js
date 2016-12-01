@@ -97,7 +97,7 @@ module.exports = {
         });
       };
       addArchivos().then(() => {
-        shell.exec('git add .;git commit -m "cambios"; git push origin master');
+        
       });
     });
 
@@ -127,13 +127,14 @@ module.exports = {
 
   deploy: () => {
     var SSH = require('simple-ssh');
+    var shell = require('shelljs');
     var fs = require('fs-extra');
-
     var directorioUsuario = process.cwd() + '/';
     var pck = require(directorioUsuario + 'package.json');
     fs.rename(directorioUsuario + '/gh-pages/index.html', directorioUsuario + '/gh-pages/juanito.html', function (err) {
       if (err) throw err;
     });
+    shell.exec('git add .;git commit -m "cambios"; git push origin master');
 
     var ssh = new SSH({
       host: pck.iaas.ip,
