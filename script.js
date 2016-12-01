@@ -96,12 +96,12 @@ module.exports = {
         
         });
       };
-     
-    });
- /* addArchivos().then(() => {
+      addArchivos().then(() => {
         
       });
+    });
 
+/*
     var claves = () => {
       return new Promise((res, rej) => {
         var pck = require(directorioUsuario + 'package.json');
