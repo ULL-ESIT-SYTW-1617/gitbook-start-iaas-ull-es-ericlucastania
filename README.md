@@ -90,9 +90,7 @@ Tenga en cuenta que para que el plugin funcione correctamente debe cambiar algun
 * Deberá poner la IP de su maquina del iaas.
 
 ![](https://4.bp.blogspot.com/-qb-f3r0EpJ0/WA9IiJ-XjjI/AAAAAAAAAoo/aDSCiupjFeIOQ3WumKTtT5FIKK9FtxU1wCLcB/s1600/ip.png)
-* Para que el pull funcione correctamente en su máquina, deberá cambiar la ruta que aparece en command por la suya.
 
-![](https://3.bp.blogspot.com/-aLZatT4SRmI/WA9IiHbUGXI/AAAAAAAAAos/9-J7a9pH7ZkLwDPSqh_TPV74Svitx2xlQCLcB/s1600/command.png)
 * Tenga en cuenta que si el usuario de su máquina no es "usuario" deberá también cambiar esto en el fichero package.json
 
 ![](https://4.bp.blogspot.com/-Ls3DTGAHQ7E/WA9IjVnGOqI/AAAAAAAAAow/BANS15EoXqYuVwIChWcSqZvqlkcLxtMRQCLcB/s1600/usuario.png)
