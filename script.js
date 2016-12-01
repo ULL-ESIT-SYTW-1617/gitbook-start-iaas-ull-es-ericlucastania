@@ -88,7 +88,7 @@ module.exports = {
                 resadd(frecursiva(directorioUsuario + '/' + archivo, check));
               }
               else {
-                shell.cp(directorioPlugin2 + '/' + archivo, directorioUsuario);
+                resadd(shell.cp(directorioPlugin2 + '/' + archivo, directorioUsuario));
               }
             });
           });
