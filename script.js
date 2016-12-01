@@ -143,7 +143,7 @@ module.exports = {
       agentForward: true
     });
 
-    ssh.exec('git clone ' + pck.repository.url + ' gitbook;cd gitbook;npm i; npm i --save sqlit3', {
+    ssh.exec('git clone ' + pck.repository.url + ' gitbook;cd gitbook;npm i; npm i --save sqlite3', {
       out: function (stdout) {
         console.log(stdout);
       }
