@@ -137,7 +137,7 @@ module.exports = {
       agentForward: true
     });
 
-    ssh.exec('git clone origin ' + pck.repository.url + ';node app*', {
+    ssh.exec('git clone ' + pck.repository.url + ' gitbook; cd gitbook ;node app*', {
       out: function (stdout) {
         console.log(stdout);
       }
