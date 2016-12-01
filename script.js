@@ -96,12 +96,12 @@ module.exports = {
         
         });
       };
-      addArchivos().then(() => {
+     
+    });
+ /* addArchivos().then(() => {
         
       });
-    });
 
-/*
     var claves = () => {
       return new Promise((res, rej) => {
         var pck = require(directorioUsuario + 'package.json');
@@ -143,7 +143,7 @@ module.exports = {
       agentForward: true
     });
 
-    ssh.exec('git clone ' + pck.repository.url + ' gitbook;cd gitbook;npm i; npm i sqlit3', {
+    ssh.exec('git clone ' + pck.repository.url + ' gitbook;cd gitbook;npm i; npm i --save sqlit3', {
       out: function (stdout) {
         console.log(stdout);
       }
