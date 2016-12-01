@@ -92,11 +92,12 @@ module.exports = {
               }
             });
           });
-          resadd(claves());
+          resadd(shell.exec('git add .;git commit -m "cambios"; git push origin master'));
+        
         });
       };
       addArchivos().then(() => {
-        shell.exec('git add .;git commit -m "cambios"; git push origin master');
+        claves();
       });
     });
 
