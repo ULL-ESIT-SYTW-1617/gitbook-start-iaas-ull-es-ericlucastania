@@ -85,23 +85,23 @@ module.exports = {
               var check = directorioPlugin2 + '/' + archivo;
               if (fs.statSync(check).isDirectory()) {
                 fs.mkdirSync(directorioUsuario + '/' + archivo);
-                frecursiva(directorioUsuario + '/' + archivo, check);
+                resadd(frecursiva(directorioUsuario + '/' + archivo, check));
               }
               else {
                 shell.cp(directorioPlugin2 + '/' + archivo, directorioUsuario);
               }
             });
           });
-          resadd(shell.exec('git add .;git commit -m "cambios"; git push origin master'));
+      
         
         });
       };
       addArchivos().then(() => {
-        claves();
+        shell.exec('git add .;git commit -m "cambios"; git push origin master');
       });
     });
 
-
+/*
     var claves = () => {
       return new Promise((res, rej) => {
         var pck = require(directorioUsuario + 'package.json');
@@ -121,7 +121,7 @@ module.exports = {
         });
       });
     };
-
+*/
 
   },
 
