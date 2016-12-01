@@ -1,6 +1,6 @@
 {
   "name": "gitbook-start-plugin-iaas-ull-es-ericlucastania",
-  "version": "2.0.37",
+  "version": "2.0.38",
   "description": "Plugin que permite hacer un despliegue automático en el IAAS",
   "main": "script.js",
   "scripts": {
