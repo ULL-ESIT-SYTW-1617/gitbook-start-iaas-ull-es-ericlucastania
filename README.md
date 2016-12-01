@@ -10,7 +10,7 @@ El objetivo de la práctica es llegar a que el usuario puede descargar el plugin
 de manera local en su maquina.El usuario tiene que tener en cuenta que tiene que tener previamente un cuenta en el iaas y tener un clone de su repositorio.
 Una vez que se tiene claro los anteriores comenzamos a explicar los pasos llevar a cabo el correcto funcionamiento de la práctica
 
-###Pasos a seguir
+### Pasos a seguir
 
 * Comprobar que tienes cuenta en el iaas,en caso de no tener cuenta no podrás llevar a cabo la práctica
   * [Enlace al login del iaas](https://iaas.ull.es/ovirt-engine/sso/login.html)
