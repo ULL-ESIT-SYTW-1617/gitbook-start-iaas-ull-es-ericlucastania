@@ -107,6 +107,9 @@ Tenga en cuenta que para que el plugin funcione correctamente debe cambiar algun
 
 ```gulp deploy-iaas```
 
+Si se realiza este paso correctamente se clonara el repo creado y se instalarán las dependencias
+automaticamente en el IAAS
+
 ## Entrar en el IAAS
 
 El siguiente paso que deberás realizar es acceder al tu cuenta del iaas y si has seguido los pasos 
