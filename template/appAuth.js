@@ -76,6 +76,10 @@ var sqlite3 = require('sqlite3').verbose(),
 
 db.serialize(function () {
   db.run('CREATE TABLE IF NOT EXISTS users (username TEXT, pass TEXT)');
+  var stmt = db.prepare('INSERT INTO users (username, pass) VALUES (?, ?)');
+    stmt.run('jose', bcrypt.hashSync('jose'));
+    stmt.finalize();
+
 });
 
 
@@ -229,7 +233,7 @@ app.post('/guardar', function (req, res) {
 
 app.post('/cambiarpass', function (req, res) {
   
-  var name = req.body.username;
+  var name = req.body.UserName;
   let passw = req.body.Password;
   let passwnew = req.body.Passwordnew1;
   let passwnew1 = req.body.Passwordnew2;
