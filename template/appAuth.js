@@ -212,8 +212,8 @@ app.post('/guardar', function (req, res) {
           
             if(rows.username != req.body.UserName ){
               var stmt = db.prepare('INSERT INTO users (username, pass) VALUES (?, ?)');
-    stmt.run(req.body.UserName, bcrypt.hashSync(req.body.Password));
-    stmt.finalize();
+                stmt.run(req.body.UserName, bcrypt.hashSync(req.body.Password));
+                stmt.finalize();
 
             }
             else{
@@ -251,7 +251,8 @@ app.post('/cambiarpass', function (req, res) {
               db.run("UPDATE users SET pass ='" +   bcrypt.hashSync(passwnew) + "'  WHERE username ='"+ name + "'");
          
             }
-        } 
+            
+        }
        });
           
   }
