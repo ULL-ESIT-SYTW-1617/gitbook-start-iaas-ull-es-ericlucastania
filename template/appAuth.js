@@ -10,8 +10,12 @@ var LocalStrategy = require('passport-local').Strategy;
 var Strategy = require('passport-github').Strategy;
 var boolGithub = false;
 var boolLocal = false;
-
-
+var https = require('https');
+https.createServer({
+      key: fs.readFileSync('key.pem'),
+      cert: fs.readFileSync('cert.pem'),
+      passphrase: 'hola'
+    }, app).listen(8080);
 passport.use(new Strategy({
   clientID: '217bf6cd072238e4f2d1',
   clientSecret: '3aac244b495a7fda4e113c46d8db90eeec137201',
@@ -33,7 +37,7 @@ passport.use(new Strategy({
 function buscarNombre(usuario, password, cb) {
     db.each("SELECT * FROM users", function (err, rows) {
         return new Promise((res, rej) => {
-    
+
           if (err) {
             res(cb(null));
           }
@@ -43,7 +47,7 @@ function buscarNombre(usuario, password, cb) {
               res(cb(null, rows));
             }
           }
-          
+
         });
     if (!boolLocal) {
         cb(null);
@@ -155,7 +159,7 @@ app.get('/home', function (req, res) {
 
 app.get('/cambiarpass', function (req, res) {
   res.render('cambiarpass');
-  
+
 });
 
 app.get('/registro', function (req, res) {
@@ -167,7 +171,7 @@ app.get('/registro', function (req, res) {
 app.get('/login', function (req, res) {
 
   if (req.user) {
-      
+
     app.get('/profile', function (req, res) {
       res.render('home');
     });
@@ -202,14 +206,14 @@ app.get('/profile', require('connect-ensure-login').ensureLoggedIn(), function (
 });
 
 app.post('/guardar', function (req, res) {
-    
+
   if (req.body.Password == req.body.Password2) {
       db.each("SELECT * FROM users", function (err, rows) {
         if (err) {
           throw err;
         }
         else {
-          
+
             if(rows.username != req.body.UserName ){
               var stmt = db.prepare('INSERT INTO users (username, pass) VALUES (?, ?)');
                 stmt.run(req.body.UserName, bcrypt.hashSync(req.body.Password));
@@ -219,10 +223,10 @@ app.post('/guardar', function (req, res) {
             else{
                 console.log("aquiiiii");
             }
-        } 
+        }
        });
-    
-    
+
+
   }
 
   else {
@@ -232,43 +236,38 @@ app.post('/guardar', function (req, res) {
 });
 
 app.post('/cambiarpass', function (req, res) {
-  
+
   var name = req.body.UserName;
   let passw = req.body.Password;
   let passwnew = req.body.Passwordnew1;
   let passwnew1 = req.body.Passwordnew2;
-  
+
   if(passwnew == passwnew1){
-  
+
       db.each("SELECT * FROM users", function (err, rows) {
         if (err) {
           throw err;
         }
         else {
-          
+
             if(rows.username == name && bcrypt.compareSync(passw, rows.pass) ){
-              
+
               db.run("UPDATE users SET pass ='" +   bcrypt.hashSync(passwnew) + "'  WHERE username ='"+ name + "'");
-         
+
             }
-            
+
         }
        });
-          
+
   }
-  
-  
+
+
   else {
     res.render('registro');
   }
   res.redirect('/');
 
 });
- 
 
-
-app.listen(app.get('port'), function () {
-  console.log('Node app ejecutandose en el puerto', app.get('port'));
-});
 
 module.exports = app;
