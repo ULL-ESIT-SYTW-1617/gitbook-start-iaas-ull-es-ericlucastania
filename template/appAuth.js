@@ -8,14 +8,18 @@ var path = require('path');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var Strategy = require('passport-github').Strategy;
+var fs = require('fs-extra');
 var boolGithub = false;
 var boolLocal = false;
 var https = require('https');
+
 https.createServer({
-      key: fs.readFileSync('key.pem'),
-      cert: fs.readFileSync('cert.pem'),
-      passphrase: 'hola'
-    }, app).listen(8080);
+  key: fs.readFileSync('key.pem'),
+  cert: fs.readFileSync('cert.pem'),
+  passphrase: 'hola'
+  }, app).listen(8080);
+
+
 passport.use(new Strategy({
   clientID: '217bf6cd072238e4f2d1',
   clientSecret: '3aac244b495a7fda4e113c46d8db90eeec137201',
