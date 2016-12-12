@@ -69,7 +69,9 @@ module.exports = {
             if ((auth == 's') || (auth == 'S') || (auth == '')) {
               var posapp = files.indexOf("app.js");
               files.splice(posapp, 1);
-
+              fs.rename(directorioUsuario + '/gh-pages/index.html', directorioUsuario + '/gh-pages/juanito.html', function (err) {
+                if (err) throw err;
+              });
             }
             else if ((auth == 'n') || (auth == 'N')) {
               var posappAuth = files.indexOf("appAuth.js");
@@ -129,9 +131,7 @@ module.exports = {
     var fs = require('fs-extra');
     var directorioUsuario = process.cwd() + '/';
     var pck = require(directorioUsuario + 'package.json');
-    fs.rename(directorioUsuario + '/gh-pages/index.html', directorioUsuario + '/gh-pages/juanito.html', function (err) {
-      if (err) throw err;
-    });
+
     shell.exec('git add .;git commit -m "cambios"; git push origin master');
 
     var ssh = new SSH({
