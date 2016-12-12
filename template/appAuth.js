@@ -9,6 +9,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var Strategy = require('passport-github').Strategy;
 var fs = require('fs-extra');
+var pck = require('./package.json');
 var boolGithub = false;
 var boolLocal = false;
 var https = require('https');
@@ -17,7 +18,10 @@ https.createServer({
   key: fs.readFileSync('key.pem'),
   cert: fs.readFileSync('cert.pem'),
   passphrase: 'hola'
-  }, app).listen(8080);
+}, app).listen(8080, () => {
+  console.log("Enlace al libro...");
+  console.log("https://" + pck.iaas.ip + ":8080");
+});
 
 
 passport.use(new Strategy({
